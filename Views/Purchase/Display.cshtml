@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PurchaseSystem.Models.Purchase>
+
+@{
+    ViewData["Title"] = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Display</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Purchase Item")
+            </th>
+            <th>
+                @Html.DisplayName("Purchase Quantity")
+            </th>
+            <th>
+                @Html.DisplayName("Purchase Date")
+            </th>
+            <th>
+                @Html.DisplayName("Price")
+            </th>
+            <th>
+                @Html.DisplayName("Vendor")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.purchase_item)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.purchase_quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.purchase_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vendor)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.purchase_id" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.purchase_id" class="btn btn-success">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.purchase_id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PurchaseSystem.Models.Issuance>
+
+@{
+    ViewData["Title"] = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Display</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Issuance Date")
+            </th>
+            <th>
+                @Html.DisplayName("Emp Name")
+            </th>
+            <th>
+                @Html.DisplayName("Quantity")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.issuance_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emp_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.issuance_id" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.issuance_id" class="btn btn-success">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.issuance_id" class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PurchaseSystem.Models.Item>
+
+@{
+    ViewData["Title"] = "AllItemsReportPDF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="margin-top:10px; margin-left:200px;"> Purchase Management System</h1>
+<h2 style="margin-top: 10px;">
+    Items Detail Record - &nbsp; &nbsp; @DateTime.Now
+</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Item Name")
+            </th>
+            <th>
+                @Html.DisplayName("Item Status")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.item_status)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

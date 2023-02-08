@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PurchaseSystem.Models.Issuance>
+
+@{
+    ViewData["Title"] = "AllIssuanceReportPDF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 style="margin-top:10px; margin-left:200px;"> Purchase Management System</h1>
+<h2 style="margin-top: 10px;">
+    Issuance Detail Record - &nbsp; &nbsp; @DateTime.Now
+</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Issuance Date")
+            </th>
+            <th>
+                @Html.DisplayName("Emp Name")
+            </th>
+            <th>
+                @Html.DisplayName("Quantity")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.issuance_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emp_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
